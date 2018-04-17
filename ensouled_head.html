@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width" name="viewport">
+    <title>Ensouled Head Banked Exp Calc</title>
+    <style>
+        * {
+            font-family: Arial;
+        }
+
+        input {
+            width:50px
+        }
+
+        p {
+            margin-top:2px;
+            margin-bottom:2px
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <th></th>
+                <th>Type</th>
+                <th>Num</th>
+                <th>Exp</th>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/b/b2/Ensouled_goblin_head.png/revision/latest?cb=20160108040949"></td>
+                <td>Goblin</td>
+                <td><input id="goblin" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="goblin_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/b/b0/Ensouled_monkey_head.png/revision/latest?cb=20160108040951"></td>
+                <td>Monkey</td>
+                <td><input id="monkey" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="monkey_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/b/ba/Ensouled_imp_head.png/revision/latest?cb=20160108040950"></td>
+                <td>Imp</td>
+                <td><input id="imp" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="imp_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/e/e0/Ensouled_minotaur_head.png/revision/latest?cb=20160108040951"></td>
+                <td>Minotaur</td>
+                <td><input id="minotaur" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="minotaur_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/3/37/Ensouled_scorpion_head.png/revision/latest?cb=20160108040952"></td>
+                <td>Scorpion</td>
+                <td><input id="scorpion" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="scorpion_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/7/7f/Ensouled_bear_head.png/revision/latest?cb=20160108040946"></td>
+                <td>Bear</td>
+                <td><input id="bear" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="bear_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/9/9b/Ensouled_unicorn_head.png/revision/latest?cb=20160108040947"></td>
+                <td>Unicorn</td>
+                <td><input id="unicorn" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="unicorn_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/1/1b/Ensouled_dog_head.png/revision/latest?cb=20160108040948"></td>
+                <td>Dog</td>
+                <td><input id="dog" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="dog_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/5/50/Ensouled_chaos_druid_head.png/revision/latest?cb=20160108040947"></td>
+                <td>Chaos Druid</td>
+                <td><input id="chaos_druid" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="chaos_druid_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/1/1f/Ensouled_giant_head.png/revision/latest?cb=20160108040949"></td>
+                <td>Giant</td>
+                <td><input id="giant" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="giant_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/9/90/Ensouled_ogre_head.png/revision/latest?cb=20160108040952"></td>
+                <td>Ogre</td>
+                <td><input id="ogre" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="ogre_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/3/32/Ensouled_elf_head.png/revision/latest?cb=20160108040949"></td>
+                <td>Elf</td>
+                <td><input id="elf" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="elf_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/3/30/Ensouled_troll_head.png/revision/latest?cb=20160108040952"></td>
+                <td>Troll</td>
+                <td><input id="troll" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="troll_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/6/6c/Ensouled_horror_head.png/revision/latest?cb=20160108040950"></td>
+                <td>Horror</td>
+                <td><input id="horror" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="horror_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/1/11/Ensouled_kalphite_head.png/revision/latest?cb=20160108040951"></td>
+                <td>Kalphite</td>
+                <td><input id="kalphite" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="kalphite_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/3/37/Ensouled_dagannoth_head.png/revision/latest?cb=20160108040947"></td>
+                <td>Dagannoth</td>
+                <td><input id="dagannoth" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="dagannoth_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/6/68/Ensouled_bloodveld_head.png/revision/latest?cb=20160108040946"></td>
+                <td>Bloodveld</td>
+                <td><input id="bloodveld" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="bloodveld_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/f/fe/Ensouled_tzhaar_head.png/revision/latest?cb=20160108040946"></td>
+                <td>TzHaar</td>
+                <td><input id="tzhaar" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="tzhaar_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/b/b2/Ensouled_demon_head.png/revision/latest?cb=20160108040948"></td>
+                <td>Demon</td>
+                <td><input id="demon" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="demon_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/6/6e/Ensouled_aviansie_head.png/revision/latest?cb=20160108040946"></td>
+                <td>Aviansie</td>
+                <td><input id="aviansie" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="aviansie_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/1/19/Ensouled_abyssal_head.png/revision/latest?cb=20160108040945"></td>
+                <td>Abyssal</td>
+                <td><input id="abyssal" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="abyssal_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img height="25" src="https://vignette.wikia.nocookie.net/2007scape/images/b/bb/Ensouled_dragon_head.png/revision/latest?cb=20160108040948"></td>
+                <td>Dragon</td>
+                <td><input id="dragon" onchange="calculate()" onkeypress="return isNumberKey(event)" onkeyup="calculate()" type="number"></td>
+                <td>
+                    <p id="dragon_exp">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td>Total Exp</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <p id="total_exp">0</p>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script language="JavaScript">
+        function calculate() {
+            var types = ["goblin", "monkey", "imp", "minotaur", "scorpion", "bear", "unicorn", "dog", "chaos_druid", "giant", "ogre", "elf", "troll", "horror", "kalphite", "dagannoth", "bloodveld", "tzhaar", "demon", "aviansie", "abyssal", "dragon"];
+            var exps = [130, 182, 286, 364, 454, 480, 494, 520, 584, 650, 716, 754, 780, 832, 884, 936, 1040, 1104, 1170, 1234, 1300, 1560];
+            var total_exp = 0;
+            for (var i = 0; i < types.length; i++) {
+                var x = document.getElementById(types[i]).value;
+                if (x === "") {
+                    x = 0;
+                }
+                var exp = (x * exps[i]);
+                var exp_label = types[i] + "_exp";
+                document.getElementById(exp_label).innerHTML = exp;
+                total_exp += exp;
+            }
+            document.getElementById("total_exp").innerHTML = total_exp;
+        }
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+            return true;
+        }
+    </script>
+</body>
+</html>
