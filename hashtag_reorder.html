@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Hashtag Reorderer</title>
+    <style>
+        * {
+            font-family: Arial;
+        }
+
+        #small {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This re-orders hashtags<span id=small> or really anything with spaces between</span></h1>
+    <textarea id="input" rows="4" cols="50"></textarea>
+    <button id="btn" type="button">Re-order</button>
+    <button id="copy" type="button">Copy to clipboard</button>
+    <script>
+        document.getElementById('btn').addEventListener('click', reorder);
+        document.getElementById('copy').addEventListener('click', copy);
+        let input = document.getElementById('input');
+
+        function reorder() {
+            function shuffle(array) {
+                let currentIndex = array.length;
+                let randomIndex;
+                let temporaryValue;
+
+                while (0 !== currentIndex){
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex -= 1;
+
+                    temporaryValue = array[currentIndex];
+                    array[currentIndex] = array[randomIndex];
+                    array[randomIndex] = temporaryValue;
+                }
+                return array;
+            }
+            let string = input.value;
+            let hashtags = string.split(' ');
+            hashtags = shuffle(hashtags);
+            string = hashtags.join(' ');
+            input.value = string;
+        }
+
+        function copy() {
+            input.select();
+            document.execCommand("Copy");
+        }
+    </script>
+</body>
+</html>
