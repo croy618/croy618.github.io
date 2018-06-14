@@ -9,19 +9,29 @@
             font-family: Arial;
         }
 
-        #small {
+        .small {
             font-size: 12px;
+        }
+
+        #number:hover {
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>This re-orders hashtags<span id=small> or really anything with spaces between</span></h1>
+    <h1>This re-orders hashtags<span class="small"> or really anything with spaces between</span></h1>
     <textarea id="input" rows="4" cols="50"></textarea>
     <button id="btn" type="button">Re-order</button>
     <button id="copy" type="button">Copy to clipboard</button>
+    <h1><span class="small">I wanted random numbers while using this so rng lives here now</span></h4>
+    <h1 id="number">0</h1>
     <script>
         document.getElementById('btn').addEventListener('click', reorder);
         document.getElementById('copy').addEventListener('click', copy);
+        num = document.getElementById('number');
+        num.addEventListener('click', rng);
+        rng();
+        
         let input = document.getElementById('input');
 
         function reorder() {
@@ -50,6 +60,11 @@
         function copy() {
             input.select();
             document.execCommand("Copy");
+        }
+
+        function rng() {
+            console.log('hi');
+            num.innerHTML = (Math.trunc(Math.random() * 100));
         }
     </script>
 </body>
