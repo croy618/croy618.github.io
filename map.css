@@ -52,7 +52,12 @@ body{
     color:#FFF;
     border-radius:10rem;
     text-align:center;
-    box-shadow: 2px 2px 3px #999;
+    box-shadow: 2% 2% 3% #999;
+}
+
+.float:active {
+    /*box-shadow: 0 5px #666;*/
+    transform: translateY(3%);
 }
 
 #add-chunk {
