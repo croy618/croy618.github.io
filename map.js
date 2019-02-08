@@ -10,8 +10,8 @@ button.onclick = function() {
     var newChunk = candidates[Math.floor(Math.random()*candidates.length)];
     console.log(newChunk);
     updateChunk(newChunk, 'active');
-    var x = newChunk.style.left.split('px')[0]/64;
-    var y = newChunk.style.top.split('px')[0]/64;
+    var x = (newChunk.style.left.split('px')[0]-25)/192;
+    var y = (newChunk.style.top.split('px')[0]-25)/192;
     try {
         if (chunks[x-1][y].classList.contains('unused')) {
             updateChunk(chunks[x-1][y], 'possible')
@@ -46,11 +46,11 @@ button.onclick = function() {
 };
 
 function initMap() {
-    for (i = 0; i < 29; i++) {
+    for (i = 0; i < 43; i++) {
         if (chunks.length <= i) {
             chunks.push([]);
         }
-        for (j = 0; j < 26; j++) {
+        for (j = 0; j < 25; j++) {
             chunks[i].push(document.createElement('a'));
             document.body.appendChild(chunks[i][j]);
             chunks[i][j].classList.add("chunk");
@@ -61,7 +61,7 @@ function initMap() {
             }
 
             chunks[i][j].classList.add("unused");
-            chunks[i][j].setAttribute('style', 'top:'+(j*64)+"px; left:"+(i*64)+"px");
+            chunks[i][j].setAttribute('style', 'top:'+(25+(j*192))+"px; left:"+(25+(i*192))+"px");
             chunks[i][j].onclick = function() {
                 if (this.classList.contains('unused')) {
                     updateChunk(this, 'possible')
